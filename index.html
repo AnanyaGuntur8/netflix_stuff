@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>When we first met</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <span class="logo">NETFLIX</span>
+        <ul class="nav-links">
+          <li class="active">Home</li>
+          <li>Series</li>
+          <li>Films</li>
+          <li>My List</li>
+        </ul>
+      </div>
+      <div class="nav-right">
+        <button class="nav-icon" id="pasteUrlsBtn" title="Add URLs">＋</button>
+        <label class="nav-icon upload-label" title="Upload images">
+          <input id="fileInput" type="file" accept="image/*" multiple hidden />
+          ↑
+        </label>
+        <div class="avatar"></div>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-vignette"></div>
+      <div class="hero-content">
+        <p class="hero-tag">N · Unlimited Series · Romance</p>
+        <h1 class="hero-title">When we first met</h1>
+        <p class="hero-desc">
+          The moment everything changed — frame by frame, memory by memory.
+          Press play and relive the story from the very beginning.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-play" id="heroPlay">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            Play
+          </button>
+          <button class="btn btn-secondary">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+            More Info
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <main class="browse">
+      <section class="content-row">
+        <h2>Continue Watching for You</h2>
+        <div class="row-track">
+          <article class="tile tile-featured" id="showCard">
+            <div class="tile-poster" id="poster"></div>
+            <div class="tile-info">
+              <span class="tile-progress"><span style="width:35%"></span></span>
+              <p>When we first met</p>
+            </div>
+            <button class="tile-play" id="episode1" aria-label="Play When we first met">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+          </article>
+          <article class="tile tile-dim"><div class="tile-poster placeholder"></div></article>
+          <article class="tile tile-dim"><div class="tile-poster placeholder"></div></article>
+          <article class="tile tile-dim"><div class="tile-poster placeholder"></div></article>
+          <article class="tile tile-dim"><div class="tile-poster placeholder"></div></article>
+        </div>
+      </section>
+
+      <section class="content-row">
+        <h2>Our Story</h2>
+        <div class="row-track">
+          <article class="tile tile-wide">
+            <div class="tile-poster" id="poster2"></div>
+            <div class="tile-label">Episode 1</div>
+          </article>
+          <article class="tile tile-dim"><div class="tile-poster placeholder"></div></article>
+          <article class="tile tile-dim"><div class="tile-poster placeholder"></div></article>
+          <article class="tile tile-dim"><div class="tile-poster placeholder"></div></article>
+        </div>
+      </section>
+
+      <section class="content-row">
+        <h2>Because You Watched Romance</h2>
+        <div class="row-track">
+          <article class="tile tile-dim"><div class="tile-poster placeholder"></div></article>
+          <article class="tile tile-dim"><div class="tile-poster placeholder"></div></article>
+          <article class="tile tile-dim"><div class="tile-poster placeholder"></div></article>
+          <article class="tile tile-dim"><div class="tile-poster placeholder"></div></article>
+          <article class="tile tile-dim"><div class="tile-poster placeholder"></div></article>
+        </div>
+      </section>
+    </main>
+
+    <div id="playerModal" class="player-screen hidden" aria-hidden="true">
+      <div class="player">
+        <div class="player-top">
+          <button class="player-back" id="closeBtn" aria-label="Back">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+          </button>
+          <span class="player-episode-title">When we first met</span>
+        </div>
+
+        <div class="slide-container" id="slideContainer"></div>
+
+        <div class="player-controls" id="playerControls">
+          <div class="controls-row">
+            <button class="ctrl-btn" id="playPause" aria-label="Play/Pause">
+              <svg class="icon-pause" viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+              <svg class="icon-play hidden" viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <button class="ctrl-btn" id="rewindBtn" aria-label="Rewind">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M11 18V6l-8.5 6 8.5 6zm.5-6l8.5 6V6l-8.5 6z"/></svg>
+            </button>
+            <button class="ctrl-btn" id="forwardBtn" aria-label="Forward">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M4 18l8.5-6L4 6v12zm2-6l8.5 6V6L6 12zM13 6v12l8.5-6L13 6z"/></svg>
+            </button>
+            <div class="time-display">
+              <span id="timeCurrent">0:00</span>
+              <span class="time-sep">/</span>
+              <span id="timeTotal">0:00</span>
+            </div>
+          </div>
+          <div class="progress-wrap" id="progressBar">
+            <div id="progress" class="progress"></div>
+            <div id="progressHandle" class="progress-handle"></div>
+          </div>
+          <div class="controls-bottom">
+            <span class="episode-label">S1:E1 "When we first met"</span>
+            <label class="pace-select">
+              Pace
+              <select id="speedSelect">
+                <option value="3000">Very slow</option>
+                <option value="2000" selected>Story pace</option>
+                <option value="1500">Relaxed</option>
+                <option value="120">Gentle</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <template id="urlPromptTpl">
+      <div class="url-prompt">
+        <h3>Add image URLs</h3>
+        <textarea id="urls" placeholder="Paste one image URL per line"></textarea>
+        <div class="url-actions">
+          <button id="addUrls">Add</button>
+          <button id="cancelUrls">Cancel</button>
+        </div>
+      </div>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
